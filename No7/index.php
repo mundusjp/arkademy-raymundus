@@ -1,6 +1,6 @@
 <?php
   include("config.php");
-  $query1="SELECT name,id_work,id_salary from Name";
+  $query1="SELECT id_work,id_salary,name from Name";
   $hasil1 = mysqli_query($db,$query1);
   $row1 = mysqli_fetch_array($hasil1);
 ?>
@@ -85,12 +85,19 @@
             <th>Action</th>
           </tr>
         </thead>
+        
+        <?php foreach($row1 as $rw){
+          var_dump($row1);
+        ?>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><?php echo $rw->name?></td>
+            <td><?php echo $rw->id_work?></td>
+            <td><?php echo $rw->id_salary?></td>
             <td><button class="btn btn-danger">Hapus</button><button class="btn btn-info">Ubah</button></td>
           </tr>
+          <?php
+        }
+        ?>
         <tbody>
         </tbody>
       </table>
